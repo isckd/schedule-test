@@ -3,6 +3,9 @@ server:
     context-path: /schedule
 
 spring:
+  application:
+    name: schedule
+
   # H2 Database 설정
   datasource:
     driver-class-name: org.h2.Driver

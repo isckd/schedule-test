@@ -1,7 +1,6 @@
 package com.example.scheduletest.common;
 
 import org.slf4j.MDC;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpRequest;
 import org.springframework.http.client.ClientHttpRequestExecution;
@@ -12,11 +11,14 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.io.IOException;
 
-@Configuration
+//@Configuration
 public class LoggingRequestInterceptor implements ClientHttpRequestInterceptor{
 
-    @Value("${spring.application.name}")
     private String applicationName;
+
+    public LoggingRequestInterceptor(String applicationName) {
+        this.applicationName = applicationName;
+    }
 
     @Override
     public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution) throws IOException {

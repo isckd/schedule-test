@@ -123,7 +123,7 @@ public class LoggingFilter extends OncePerRequestFilter {
 
     private static String getCaller(String caller) {
         if (caller != null && caller.length() > 0) {
-            caller = caller.substring(1).toUpperCase();
+            caller = caller.toUpperCase();
         } else {
             caller = "CLIENT";
         }

@@ -97,11 +97,12 @@ public class LoggingFilter extends OncePerRequestFilter {
 
     private static void logResponse(String caller, String method, String fullURI, ContentCachingResponseWrapper response, long duration) throws IOException {
         String payload = logPayload("", response.getContentType(), response.getContentInputStream());
-        log.info("[{}-RES] {} {} {} {}ms",
+        log.info("[{}-RES] {} {} {} {} {}ms",
                 caller,
                 method,
                 fullURI,
                 payload != null ? payload : "",
+                response.getStatus(),
                 duration
         );
         logPayload("[RES]", response.getContentType(), response.getContentInputStream());
